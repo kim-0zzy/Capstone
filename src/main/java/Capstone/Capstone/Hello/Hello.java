@@ -1,4 +1,4 @@
-package Capstone.Capstone.Entity;
+package Capstone.Capstone.Hello;
 
 import lombok.Getter;
 import lombok.Setter;
