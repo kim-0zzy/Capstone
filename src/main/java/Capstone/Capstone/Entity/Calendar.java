@@ -12,7 +12,8 @@ import java.time.LocalDate;
 @Getter
 public class Calendar {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "calendar_id")
     private Long id;
 
@@ -26,12 +27,12 @@ public class Calendar {
     private Long ownerId;
     private Boolean progress;
 
-    public void setMemberSpec(MemberSpec memberSpec){
+    public void setMemberSpec(MemberSpec memberSpec) {
         this.memberSpec = memberSpec;
         memberSpec.getCalendar().add(this);
     }
 
-    public Calendar(int year, int month, int day, Long ownerId ,Boolean progress) {
+    public Calendar(int year, int month, int day, Long ownerId, Boolean progress) {
         this.year = year;
         this.month = month;
         this.day = day;

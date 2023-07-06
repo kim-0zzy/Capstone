@@ -11,6 +11,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -18,6 +19,7 @@ public class MemberSpec {
 
     @Id @GeneratedValue
     @Column(name = "memberSpec_id")
+
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -31,6 +33,7 @@ public class MemberSpec {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "memberSpec")
     @JoinColumn(name = "calendar_id")
     private List<Calendar> calendar = new ArrayList<Calendar>();
+
 
     private int height;
     private int weight;
