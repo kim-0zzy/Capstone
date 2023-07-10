@@ -40,12 +40,13 @@ public class Calendar {
         this.ownerId = ownerId;
     }
 
-    public Calendar createCalendar(Calendar calendar) {
+    public Calendar createCalendar() {
         int year = LocalDate.now().getYear();
         int month = LocalDate.now().getMonth().getValue();
         int day = LocalDate.now().getDayOfMonth();
 
         Long ownerId = memberSpec.getId();
+        memberSpec.addCareer();
         return new Calendar(year, month, day, ownerId, true);
     }
 }

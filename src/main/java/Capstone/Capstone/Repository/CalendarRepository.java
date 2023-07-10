@@ -18,14 +18,14 @@ public class CalendarRepository {
     }
 
     public List findByOwnerId(Long id){
-        return em.createQuery("select c from Calendar c where c.ownerId =: id")
+        return em.createQuery("select c from Calendar c where c.ownerId =: id", Calendar.class)
                 .setParameter("id", id)
                 .getResultList();
     }
 
     public List findByOwnerIdWithYear(Long id, int year){
         return em.createQuery("select c from Calendar c where c.ownerId =: id " +
-                        "and c.year =: year")
+                        "and c.year =: year", Calendar.class)
                 .setParameter("id", id)
                 .setParameter("year", year)
                 .getResultList();
@@ -33,7 +33,7 @@ public class CalendarRepository {
 
     public List findByOwnerIdWithYM(Long id, int year, int month){
         return em.createQuery("select c from Calendar c where c.ownerId =: id " +
-                        "and c.year =: year and c.month =: month")
+                        "and c.year =: year and c.month =: month", Calendar.class)
                 .setParameter("id", id)
                 .setParameter("year", year)
                 .setParameter("month", month)
@@ -42,7 +42,7 @@ public class CalendarRepository {
 
     public Optional findByOwnerIdWithYMD(Long id, int year, int month, int day){
         return em.createQuery("select c from Calendar c where c.ownerId =: id " +
-                "and c.year =: year and c.month =: month and c.day =: day")
+                "and c.year =: year and c.month =: month and c.day =: day", Calendar.class)
                 .setParameter("id", id)
                 .setParameter("year", year)
                 .setParameter("month", month)

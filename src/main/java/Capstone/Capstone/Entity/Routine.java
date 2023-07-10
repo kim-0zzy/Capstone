@@ -41,20 +41,6 @@ public class Routine {
         this.nutrition = nutrition;
     }
 
-//    public String getLevel(MemberSpec memberSpec){
-//        String level; // 이거 ENUM 타입으로 바꿀지 생각할 것, Update 로직도 구현해야함.
-//        int career = memberSpec.getCareer();
-//        if (career >= 180){
-//            level = "INTERMEDIATE";
-//        }else if(career >= 90){
-//            level = "NOVICE";
-//        }else if(career >= 30){
-//            level = "BEGINNER";
-//        }else{
-//            level = "UNTRAINED";
-//        }
-//        return level;
-//    }
     public Level getLevel(MemberSpec memberSpec){
         return memberSpec.getLevel();
     }
@@ -69,6 +55,7 @@ public class Routine {
             case WOMEN -> ((447.6 + (9.25 * weight)) + (3.1 * height) - (4.33 * age));
         };
     }
+
 // ---------------------- MemberSpecService 계층으로 양도 예정 -----------------------------------
     public void makePartition(MemberSpec memberSpec){
         // 이후 추가 및 MemberSpecService 계층으로 양도 예정
@@ -214,4 +201,11 @@ public class Routine {
     }
 
     // ---------------------- MemberSpecService 계층으로 양도 예정 -----------------------------------
+
+    public static Routine createRoutine(MemberSpec memberSpec){
+        Routine routine = new Routine();
+        routine.makePartition(memberSpec);
+        routine.makeNutrition(memberSpec);
+        return routine;
+    }
 }
